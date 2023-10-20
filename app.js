@@ -1,27 +1,6 @@
-function playRPS() {
+function playRPS(userChoice) {
   const choices = ["rock", "paper", "scissors"];
   const computerChoice = choices[Math.floor(Math.random() * 3)];
-
-  let userChoice = prompt("Choose: rock, paper, or scissors");
-
-  if (userChoice === null) {
-    console.log("You canceled the game.");
-    return "cancel";
-  }
-
-  userChoice = userChoice.trim().toLowerCase();
-
-  if (userChoice === "") {
-    console.log(
-      "You didn't enter a choice. Please choose rock, paper, or scissors."
-    );
-    return "invalid";
-  }
-
-  if (choices.indexOf(userChoice) === -1) {
-    console.log("Invalid choice. Please choose rock, paper, or scissors.");
-    return "invalid";
-  }
 
   console.log("Your choice: " + userChoice);
   console.log("Computer's choice: " + computerChoice);
@@ -41,19 +20,22 @@ function playRPS() {
     return "lose";
   }
 }
+//Button input
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
 
-let playerScore = 0;
-let computerScore = 0;
+rockBtn.addEventListener("click", () => {
+  let userChoice = "rock";
+  playRPS(userChoice);
+});
 
-for (let i = 1; i <= 5; i++) {
-  const result = playRPS();
+paperBtn.addEventListener("click", () => {
+  let userChoice = "paper";
+  playRPS(userChoice);
+});
 
-  if (result === "win") {
-    playerScore += 1;
-  } else if (result === "lose") {
-    computerScore += 1;
-  }
-}
-
-console.log("Player Score:", playerScore);
-console.log("Computer Score:", computerScore);
+scissorsBtn.addEventListener("click", () => {
+  let userChoice = "scissors";
+  playRPS(userChoice);
+});
