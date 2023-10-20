@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="app.js" defer></script>
+    <title>Rock Paper Scissors Game</title>
   </head>
   <body>
-    <p>Rock Paper Scissors Game</p>
+    <h1>Rock Paper Scissors Game</h1>
+    <div id="game">
+      <p>Your choice: <span id="userChoice"></span></p>
+      <p>Computer's choice: <span id="computerChoice"></span></p>
+      <p id="result"></p>
+    </div>
+
     <button id="rockBtn">Rock</button>
     <button id="paperBtn">Paper</button>
     <button id="scissorsBtn">Scissors</button>
+
+    <script src="app.js" defer></script>
   </body>
 </html>

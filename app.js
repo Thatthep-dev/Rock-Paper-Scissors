@@ -2,40 +2,39 @@ function playRPS(userChoice) {
   const choices = ["rock", "paper", "scissors"];
   const computerChoice = choices[Math.floor(Math.random() * 3)];
 
-  console.log("Your choice: " + userChoice);
-  console.log("Computer's choice: " + computerChoice);
+  const userChoiceElement = document.querySelector("#userChoice");
+  const computerChoiceElement = document.querySelector("#computerChoice");
+  const resultElement = document.querySelector("#result");
+
+  userChoiceElement.textContent = userChoice;
+  computerChoiceElement.textContent = computerChoice;
 
   if (userChoice === computerChoice) {
-    console.log("It's a tie!");
-    return "tie";
+    resultElement.textContent = "It's a tie";
   } else if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "scissors" && computerChoice === "paper") ||
     (userChoice === "paper" && computerChoice === "rock")
   ) {
-    console.log("You win!");
-    return "win";
+    resultElement.textContent = "You win!";
   } else {
-    console.log("You lose!");
-    return "lose";
+    resultElement.textContent = "You lose!";
   }
 }
-//Button input
+
+// Button input
 const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
 
 rockBtn.addEventListener("click", () => {
-  let userChoice = "rock";
-  playRPS(userChoice);
+  playRPS("rock");
 });
 
 paperBtn.addEventListener("click", () => {
-  let userChoice = "paper";
-  playRPS(userChoice);
+  playRPS("paper");
 });
 
 scissorsBtn.addEventListener("click", () => {
-  let userChoice = "scissors";
-  playRPS(userChoice);
+  playRPS("scissors");
 });
